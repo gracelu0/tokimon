@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" action="/add" method="post">
+      Name: <input id="attribute" type="text" name="tokimonName" value="" maxlength="30"><br>
+      Trainer: <input id="attribute" type="text" name="trainer" value="" maxlength="50"><br>
+      Height (cm): <input id="attribute" type="number" name="height" value="" min="0" oninput="validity.valid||(value='');"><br>
+      Weight (lbs): <input id="attribute" type="number" name="weight" value="" min="0" oninput="validity.valid||(value='');"><br>
+      <div class="slidecontainer">
+        Electric: <input id="electric" type="range" min="0" max="100" name="electric" value="50" class="slider" oninput="electricVal.value=electric.value">
+        <output name="ele" id="electricVal">50</output><br>
+        Fight: <input id="attribute" type="range" name="fight" value="50" class="slider" oninput="fightVal.value=fight.value">
+        <output name="fig" id="fightVal">50</output><br>
+        Fire: <input id="attribute" type="range" name="fire" value="50" class="slider" oninput="fireVal.value=fire.value">
+        <output name="fir" id="fireVal">50</output><br>
+        Fly: <input id="attribute" type="range" min="0" max="100" name="fly" value="50" class="slider" oninput="flyVal.value=fly.value">
+        <output name="" id="flyVal">50</output><br>
+        Water: <input id="attribute" type="range" name="water" value="50" class="slider" oninput="waterVal.value=water.value">
+        <output name="wat" id="waterVal">50</output><br>
+        Ice: <input id="attribute" type="range" name="ice" value="50" class="slider" oninput="iceVal.value=ice.value">
+        <output name="" id="iceVal">50</output><br>
+      </div>
+      Favourite food: <input id="attribute" type="text" name="food" value="" maxlength="20"><br>
+      <button type="submit" name="" value="">Add Tokimon!</button>
+
+    </form>
+  </body>
+</html>
