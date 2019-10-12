@@ -4,30 +4,49 @@
     <title>Tokidex</title>
     <meta name="viewport" content="width=device-width,initial-scale-1" charset="utf-8">
     <link rel="stylesheet" href="/stylesheets/tokidex.css">
-    <% include ../partials/header.ejs %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis|Quicksand&display=swap">
+    <!--<% include ../partials/header.ejs %>-->
   </head>
 
   <body>
-    <% include ../partials/nav.ejs %>
-    <div class="jumbotron text-center">
+    <!--<% include ../partials/nav.ejs %>-->
+    <!-- <div class="jumbotron text-center">
       <h1>Tokidex</h1>
 
+    </div> -->
+  <div class="row">
+    <div class="column">
+      <div class="circle">
+        <p>Welcome to Your Tokidex</p>
     </div>
-    <div class="btn-group">
+  </div>
+    <div class="column">
+      <form class="" action="/add" method="get">
+        <button id="homeButton" onclick="" type="submit" class="button">Add Tokimon</button>
+      </form>
+
+    </div>
+  </div>
+
+
+    <!--<div class="btn-group">
       <button type="button" class="btn btn-primary">Samsung</button>
     <div class="btn-group">
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
     Edit Tokidex<span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="add.ejs">Add tokimon</a></li>
+      <li><a href="#">Add tokimon<a></li>
       <li><a href="#">Delete tokimon</a></li>
     </ul>
   </div>
-</div>
-    <div id="button"><a href="add.ejs">Log In</a></div>
-    <form class="" action="/add" method="get">
-      <button onclick="" type="submit" name="button">Add Tokimon</button>
-    </form>
+  </div>
+  <div id="button"><a href="add.ejs">Log In</a></div>-->
+
+  <form class="" action="/tokimons" method="get">
+    <button onclick="" type="submit" name="button">Get Tokimon Data</button>
+  </form>
+
+
 
 
 

@@ -1,6 +1,4 @@
-h1{
-  color: red;
-}
+
 
 .slidecontainer{
   width: 50%;
@@ -35,4 +33,60 @@ h1{
 
 #electric.slider::-webkit-slider-thumb{
   background: yellow;
+}
+
+.circle {
+    background: #c4abed;
+    opacity: 0.7;
+    border-radius: 500px;
+    color: white;
+    height: 500px;
+    font-weight: bold;
+    width: 500px;
+    display: table;
+    margin: 20px auto;
+}
+.circle p {
+  font-size: 35pt;
+  font-family: 'Dosis', sans-serif;
+    vertical-align: middle;
+    display: table-cell;
+    padding-left: 20px;ß
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.button{
+  background-color: #c4abed;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  display: block;
+  font-size: 30px;
+  margin: 4px 2px;
+  cursor: pointer;
+  opacity: 0.7;
+  border-radius: 50%;
+  font-family: 'Dosis', sans-serif;
+}
+
+#homeButton:hover{
+  opacity: 1;
 }
