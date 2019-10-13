@@ -87,6 +87,25 @@ h1{
   font-family: 'Dosis', sans-serif;
 }
 
+#tokimonTable{
+  width: 100%;
+}
+
+#tokimonCells{
+  padding: 10px;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+}
+
+#tokimonNames{
+  width:50%;
+}
+
+th{
+  font-size: 15pt;
+}
+
+
 #addP{
   font-size: 15pt;
   font-family: 'Dosis', sans-serif;
@@ -111,6 +130,32 @@ h1{
 
 #addTd{
   padding-top: 8px;
+}
+
+#view{
+  border-radius: 10px;
+  padding: 5px;
+  width: 100%;
+  background: #c4abed;
+  opacity: 0.7;
+  font-size: 20px;
+}
+
+#viewAdd{
+  width: 50%;
+  border-radius: 10px;
+  padding: 5px;
+  background: mediumpurple;
+  opacity: 0.7;
+  font-size: 15px;
+}
+
+#delete{
+  background: crimson;
+  opacity: 0.8;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  border-radius: 10px;
 }
 
 .row{
@@ -155,6 +200,6 @@ h1{
   font-family: 'Dosis', sans-serif;
 }
 
-#homeButton:hover,#addButton:hover{
+#homeButton:hover,#addButton:hover, #view:hover, #viewAdd:hover, #delete:hover{
   opacity: 1;
 }

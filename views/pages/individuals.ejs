@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+  <link rel="stylesheet" href="/stylesheets/tokidex.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis|Quicksand&display=swap">
+</head>
+
+<body>
+
+<% include ../partials/nav.ejs %>
+
+<div align="center" class="container">
+  <h1 align="center">Your Tokimons</h1><br>
+  <form class="" action="/db" method="get">
+    <button id="homeButton" onclick="" type="submit" class="button">View All</button>
+  </form>
+
+  <table align="center" id="tokimonNames" border="1">
+
+    <% if(results.length){
+      results.forEach(function(r){ %>
+    <tr>
+      <td id="tokimonCells" align="center">
+      <form class="" action="/tokimon/<%=r.name%>" method="get">
+        <button type="submit" id="view"><%=r.name%></button>
+      </form>
+      </td>
+    </tr>
+  <%})};%>
+  <tr>
+    <td align="center">
+      <form class="" action="/add" method="get">
+        <button id="viewAdd" onclick="" type="submit" class="button">+ Add a Tokimon</button>
+      </form>
+  </td>
+
+  </tr>
+
+  </table>
+
+
+
+<ul>
+    <% results.forEach(function(r) { %>
+        <li><%= r.name %> - <%= r.trainer %></li>
+    <% }); %>
+</ul>
+
+</div>
+
+</body>
+</html>

@@ -11,10 +11,11 @@
 <% include ../partials/nav.ejs %>
 
 <div class="container">
-  <h1 align="center">Your Tokidex</h1>
+  <% if(results.length){
+    results.forEach(function(r){ %>
+  <h1 align="center"><%=r.name%></h1>
   <table id="tokimonTable" border="1">
     <tr>
-      <th></th>
       <th id="tokimonCells">Tokimon</th>
       <th id="tokimonCells">Trainer</th>
       <th id="tokimonCells">Height</th>
@@ -26,14 +27,7 @@
       <th id="tokimonCells">Fly</th>
       <th id="tokimonCells">Total Ability</th>
     </tr>
-    <% if(results.length){
-      results.forEach(function(r){ %>
     <tr>
-      <td id="tokimonCells">
-        <form class="" action="/deleteTokimon/<%=r.name%>" method="get">
-          <button id="delete" type="submit" name="button">Delete</button>
-        </form>
-      </td>
       <td id="tokimonCells"><%=r.name%></td>
       <td id="tokimonCells"><%=r.trainer%></td>
       <td id="tokimonCells"><%=r.height%></td>
@@ -45,18 +39,14 @@
       <td id="tokimonCells"><%=r.fly%></td>
       <td id="tokimonCells"><%=r.total%></td>
     </tr>
-  <%})};%>
+
 
   </table>
 
-
-
-<ul>
-    <% results.forEach(function(r) { %>
-        <li><%= r.name %> - <%= r.trainer %></li>
-    <% }); %>
-</ul>
-
+  <form class="" action="/edit/<%=r.name%>" method="get">
+    <button id="homeButton" onclick="" type="submit" class="button">Edit</button>
+  </form>
+  <%})};%>
 </div>
 
 </body>

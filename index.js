@@ -51,6 +51,67 @@ app.get('/db', async (req, res) => {
     }
   })
 
+app.get('/individuals', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const result = await client.query('SELECT * FROM tokimondata');
+      const results = { 'results': (result) ? result.rows : null};
+      res.render('pages/individuals', results );
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+
+app.get('/tokimon/:name', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      console.log(req.params.name);
+      //res.send(`tokimon name: ${req.params.name}`);
+      const result = await client.query(`SELECT * FROM tokimondata WHERE name = '${req.params.name}'`);
+      const results = { 'results': (result) ? result.rows : null};
+      res.render('pages/viewTokimon', results );
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+
+app.get('/deleteTokimon/:name', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      console.log(req.params.name);
+      //res.send(`tokimon name: ${req.params.name}`);
+      const result = await client.query(`DELETE FROM tokimondata WHERE name = '${req.params.name}'`);
+      res.send(`deleted: ${req.params.name}`)
+      // const deleted = { 'results': (result) ? result.rows : null};
+      // res.render('pages/db', deleted );
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+
+app.get('/edit/:name', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      console.log(req.params.name);
+      //res.send(`tokimon name: ${req.params.name}`);
+      const result = await client.query(`SELECT FROM tokimondata WHERE name = '${req.params.name}'`);
+      //res.send(`deleted: ${req.params.name}`)
+       const results = { 'results': (result) ? result.rows : null};
+       res.render('pages/edit', results);
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+
+
 app.post('/add', (req,res) => {
   console.log("ok");
   const total = parseInt(req.body.electric)+parseInt(req.body.fight)+parseInt(req.body.fire)+parseInt(req.body.fly)+parseInt(req.body.water)+parseInt(req.body.ice);
@@ -69,7 +130,7 @@ app.post('/add', (req,res) => {
   var ice = req.body.ice;
   var favFood = req.body.food;
 
-  res.send(`tokimon name: ${tokiname}`);
+  //res.send(`tokimon name: ${tokiname}`);
 
   console.log(tokiname);
   console.log(trainer);
@@ -86,7 +147,11 @@ app.post('/add', (req,res) => {
   // const inner_results = await client.query('insert into login (id,username,password) values ($1,$2,$3)',value);
 
   var sql = 'INSERT INTO tokimondata (name,trainer,height,weight,electric,fight,fire,fly,water,ice,food,total) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)';
-  pool.query(sql, value);
+  pool.query(sql, value, (err, result)=> {
+    if (err) throw err;
+    res.render('pages/addSuccess');
+    console.log("tokimon added!");
+  });
 
 
 })
