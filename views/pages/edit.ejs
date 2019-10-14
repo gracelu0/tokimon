@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <% include ../partials/header.ejs %>
+
     <meta charset="utf-8">
     <title>Edit Tokimon</title>
     <link rel="stylesheet" href="/stylesheets/tokidex.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis|Quicksand&display=swap">
   </head>
   <body>
+    <form class="" action="/" method="get">
+      <button id="backButton" onclick="" type="submit" class="button">Home</button>
+    </form>
 
-    <% include ../partials/nav.ejs %>
-    
+
     <div class="row">
       <% if(results.length){
         results.forEach(function(r){ %>
