@@ -5,6 +5,8 @@ var app = express();
 var bodyParser = require('body-parser')
 
 const { Pool } = require('pg');
+
+//LOCAL
 // var pool = new Pool({
 //   user: 'graceluo',
 //   password: 'tokicorgi',
@@ -12,6 +14,8 @@ const { Pool } = require('pg');
 //   database: 'tokimonDB'
 // });
 
+
+//Production
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl:true

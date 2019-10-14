@@ -18,8 +18,7 @@
   <h1 align="center">Your Tokidex</h1>
   <table id="tokimonTable" border="1">
     <tr>
-      <th></th>
-      <th></th>
+      <th class="noborder"></th>
       <th id="tokimonCells">Tokimon</th>
       <th id="tokimonCells">Trainer</th>
       <th id="tokimonCells">Height</th>
@@ -34,13 +33,11 @@
     <% if(results.length){
       results.forEach(function(r){ %>
     <tr>
-      <td id="tokimonCells">
-        <form class="" action="/edit/<%=r.name%>" method="get">
+      <td id="tokimonCells" class="noborder">
+        <form class="form-inline" action="/edit/<%=r.name%>" method="get">
           <button id="edit" type="submit" name="button">Edit</button>
         </form>
-      </td>
-      <td id="tokimonCells">
-        <form id="deleteForm" class="" action="/deleteTokimon/<%=r.name%>" method="get">
+        <form id="deleteForm" class="form-inline" action="/deleteTokimon/<%=r.name%>" method="get">
           <button id="delete" type="submit" name="button">Delete</button>
         </form>
       </td>

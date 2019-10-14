@@ -91,6 +91,11 @@ h1{
   width: 100%;
 }
 
+.noborder{
+  border-bottom: hidden;
+  border-left: hidden;
+  border-top: hidden;
+}
 #tokimonCells{
   padding: 10px;
   text-align: center;
@@ -164,6 +169,7 @@ td{
   font-family: 'Dosis', sans-serif;
   color: white;
   border-radius: 10px;
+  width: 60px;
 }
 
 #delete{
