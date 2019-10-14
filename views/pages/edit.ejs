@@ -12,75 +12,79 @@
         results.forEach(function(r){ %>
 
         <div id="addCircle" class="circle">
-          <h1 align="center"><%=r.name%>Tokimon Name</h1><br>
-          <form class="" action="/add" method="post">
+          <h1 align="center"><%=r.name%></h1><br>
+          <form class="" action="/update/<%=r.name%>" method="post">
           <table align="center" border="0">
               <tr>
                 <td><p id="addP">Trainer:</p></td>
-                <td><input id="attribute" type="text" name="trainer" value="<%=r.trainer%>" maxlength="50"></td>
+                <td><input id="attribute" type="text" onkeypress="return (event.charCode > 64 &&
+	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" name="trainer" value="<%=r.trainer%>" maxlength="50"></td>
               </tr>
               <tr>
                 <td><p id="addP">Height (cm):</p></td>
-                <td><input id="attribute" type="number" name="height" value="" min="0" oninput="validity.valid||(value='');"></td>
+                <td><input id="attribute" type="number" name="height" value="<%=r.height%>" min="0" oninput="validity.valid||(value='');"></td>
               </tr>
               <tr>
                 <td><p id="addP">Weight (lbs):</p></td>
-                <td><input id="attribute" type="number" name="weight" value="" min="0" oninput="validity.valid||(value='');"></td>
+                <td><input id="attribute" type="number" name="weight" value="<%=r.weight%>" min="0" oninput="validity.valid||(value='');"></td>
               </tr>
               <tr>
                 <td><p id="addP">Electric:</p></td>
                 <td align="center">
-                  <div class="slidecontainer"><input id="electric" type="range" min="0" max="100" name="electric" value="50" class="slider" oninput="electricVal.value=electric.value">
-                    <output class="slides" name="ele" id="electricVal">50</output>
+                  <div class="slidecontainer"><input id="electric" type="range" min="0" max="100" name="electric" value="<%=r.electric%>" class="slider" oninput="electricVal.value=electric.value">
+                    <output class="slides" name="ele" id="electricVal"><%=r.electric%></output>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td><p id="addP">Fight:</p></td>
                 <td align="center">
-                  <div class="slidecontainer"><input id="fight" type="range" name="fight" value="50" class="slider" oninput="fightVal.value=fight.value">
-                  <output class="slides" name="fig" id="fightVal">50</output>
+                  <div class="slidecontainer"><input id="fight" type="range" name="fight" value="<%=r.fight%>" class="slider" oninput="fightVal.value=fight.value">
+                  <output class="slides" name="fig" id="fightVal"><%=r.fight%></output>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td><p id="addP">Fire:</p></td>
                 <td align="center">
-                  <div class="slidecontainer"><input id="fire" type="range" name="fire" value="50" class="slider" oninput="fireVal.value=fire.value">
-                  <output class="slides" name="fir" id="fireVal">50</output>
+                  <div class="slidecontainer"><input id="fire" type="range" name="fire" value="<%=r.fire%>" class="slider" oninput="fireVal.value=fire.value">
+                  <output class="slides" name="fir" id="fireVal"><%=r.fire%></output>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td><p id="addP">Fly:</p></td>
                 <td align="center">
-                  <div class="slidecontainer"><input id="fly" type="range" min="0" max="100" name="fly" value="50" class="slider" oninput="flyVal.value=fly.value">
-                  <output class="slides" name="" id="flyVal">50</output>
+                  <div class="slidecontainer"><input id="fly" type="range" min="0" max="100" name="fly" value="<%=r.fly%>" class="slider" oninput="flyVal.value=fly.value">
+                  <output class="slides" name="" id="flyVal"><%=r.fly%></output>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td><p id="addP">Water:</p></td>
                 <td align="center">
-                  <div class="slidecontainer"><input id="water" type="range" name="water" value="50" class="slider" oninput="waterVal.value=water.value">
-                  <output class="slides" name="wat" id="waterVal">50</output>
+                  <div class="slidecontainer"><input id="water" type="range" name="water" value="<%=r.water%>" class="slider" oninput="waterVal.value=water.value">
+                  <output class="slides" name="wat" id="waterVal"><%=r.water%></output>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td><p id="addP">Ice:</p></td>
                 <td align="center">
-                  <div class="slidecontainer"><input id="ice" type="range" name="ice" value="50" class="slider" oninput="iceVal.value=ice.value">
-                  <output class="slides" name="" id="iceVal">50</output>
+                  <div class="slidecontainer"><input id="ice" type="range" name="ice" value="<%=r.ice%>" class="slider" oninput="iceVal.value=ice.value">
+                  <output class="slides" name="" id="iceVal"><%=r.ice%></output>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td><p id="addP">Favourite food:</p></td>
-                <td><input id="attribute" type="text" name="food" value="" maxlength="20"></td>
+                <td><input id="attribute" type="text" onkeypress="return (event.charCode > 64 &&
+	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" name="food" value="<%=r.food%>" maxlength="20"></td>
               </tr>
               <tr>
-                <td id="addTd" align="center" colspan="2"><button type="submit" id="addButton" value="" class="button">Make changes!</button></td>
+                <td id="addTd" align="center" colspan="2">
+                    <button type="submit" id="updateButton" class="button">Make changes!</button>
+                </td>
 
               </tr>
 

@@ -11,33 +11,63 @@
 <% include ../partials/nav.ejs %>
 
 <div class="container">
+  <form class="" action="/individuals" method="get">
+    <button id="backButton" onclick="" type="submit" class="button">Back</button>
+  </form>
   <% if(results.length){
     results.forEach(function(r){ %>
-  <h1 align="center"><%=r.name%></h1>
-  <table id="tokimonTable" border="1">
+  <div class="circle">
+  <h1 align="center"><%=r.name%></h1><br>
+  <table align="center" id="indivTable" border="1">
     <tr>
-      <th id="tokimonCells">Tokimon</th>
       <th id="tokimonCells">Trainer</th>
-      <th id="tokimonCells">Height</th>
-      <th id="tokimonCells">Weight</th>
-      <th id="tokimonCells">Favourite food</th>
-      <th id="tokimonCells">Electric</th>
-      <th id="tokimonCells">Fight</th>
-      <th id="tokimonCells">Fire</th>
-      <th id="tokimonCells">Fly</th>
-      <th id="tokimonCells">Total Ability</th>
+      <td id="tokimonCells"><%=r.trainer%></td>
     </tr>
     <tr>
-      <td id="tokimonCells"><%=r.name%></td>
-      <td id="tokimonCells"><%=r.trainer%></td>
+      <th id="tokimonCells">Height</th>
       <td id="tokimonCells"><%=r.height%></td>
+    </tr>
+    <tr>
+      <th id="tokimonCells">Weight</th>
       <td id="tokimonCells"><%=r.weight%></td>
+    </tr>
+    <tr>
+      <th id="tokimonCells">Favourite food</th>
       <td id="tokimonCells"><%=r.food%></td>
+    </tr>
+    <tr>
+      <th id="tokimonCells">Electric</th>
       <td id="tokimonCells"><%=r.electric%></td>
+    </tr>
+    <tr>
+      <th id="tokimonCells">Fight</th>
       <td id="tokimonCells"><%=r.fight%></td>
+    </tr>
+    <tr>
+      <th id="tokimonCells">Fire</th>
       <td id="tokimonCells"><%=r.fire%></td>
+    </tr>
+    <tr>
+      <th id="tokimonCells">Fly</th>
       <td id="tokimonCells"><%=r.fly%></td>
+    </tr>
+    <tr>
+      <th id="tokimonCells">Water</th>
+      <td id="tokimonCells"><%=r.water%></td>
+    </tr>
+    <tr>
+      <th id="tokimonCells">Ice</th>
+      <td id="tokimonCells"><%=r.ice%></td>
+    </tr>
+    <tr>
+      <th id="tokimonCells">Total Ability</th>
       <td id="tokimonCells"><%=r.total%></td>
+    </tr>
+
+    <tr>
+
+
+
     </tr>
 
 
@@ -46,7 +76,11 @@
   <form class="" action="/edit/<%=r.name%>" method="get">
     <button id="homeButton" onclick="" type="submit" class="button">Edit</button>
   </form>
+  <form class="" action="/deleteTokimon/<%=r.name%>" method="get">
+    <button id="homeButton" onclick="" type="submit" class="button">Delete</button>
+  </form>
   <%})};%>
+</div>
 </div>
 
 </body>

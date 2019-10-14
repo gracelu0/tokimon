@@ -85,9 +85,9 @@ app.get('/deleteTokimon/:name', async (req, res) => {
       console.log(req.params.name);
       //res.send(`tokimon name: ${req.params.name}`);
       const result = await client.query(`DELETE FROM tokimondata WHERE name = '${req.params.name}'`);
-      res.send(`deleted: ${req.params.name}`)
+      //res.send(`deleted: ${req.params.name}`)
       // const deleted = { 'results': (result) ? result.rows : null};
-      // res.render('pages/db', deleted );
+       res.render('pages/deleteSuccess');
       client.release();
     } catch (err) {
       console.error(err);
@@ -100,7 +100,7 @@ app.get('/edit/:name', async (req, res) => {
       const client = await pool.connect()
       console.log(req.params.name);
       //res.send(`tokimon name: ${req.params.name}`);
-      const result = await client.query(`SELECT FROM tokimondata WHERE name = '${req.params.name}'`);
+      const result = await client.query(`SELECT * FROM tokimondata WHERE name = '${req.params.name}'`);
       //res.send(`deleted: ${req.params.name}`)
        const results = { 'results': (result) ? result.rows : null};
        res.render('pages/edit', results);
@@ -111,6 +111,40 @@ app.get('/edit/:name', async (req, res) => {
     }
   })
 
+app.post('/update/:name', (req,res)=> {
+  console.log(req.body);
+  var value = [req.body.trainer,req.body.height,req.body.weight,req.body.electric,req.body.fight,req.body.fire,req.body.fly,req.body.water,req.body.ice,req.body.food,parseInt(req.body.electric)+parseInt(req.body.fight)+parseInt(req.body.fire)+parseInt(req.body.fly)+parseInt(req.body.water)+parseInt(req.body.ice)];
+  // var sql = `UPDATE tokimondata SET trainer = req.body.trainer, height = req.body.height, weight = req.body.weight,
+  //   electric = req.body.electric, fight = req.body.fight, fire = req.body.fire, fly = req.body.fly, water = req.body.water, ice = req.body.ice,
+  //   food = req.body.food WHERE name = '${req.params.name}'`;
+  var sql = `UPDATE tokimondata SET trainer = $1, height = $2, weight = $3,
+    electric = $4, fight = $5, fire = $6, fly = $7, water = $8, ice = $9,
+    food = $10, total = $11 WHERE name = '${req.params.name}'`;
+
+  pool.query(sql, value, (err, result)=> {
+    if (err) throw err;
+    res.render('pages/updateSuccess');
+    console.log("tokimon updated!");
+  });
+})
+
+// app.post('/update/:name', async (req, res) => {
+//     try {
+//       const client = await pool.connect()
+//       console.log(req.params.name);
+//       //res.send(`tokimon name: ${req.params.name}`);
+//       const result = await client.query(`UPDATE tokimondata SET trainer = req.body.trainer, height = req.body.height, weight = req.body.weight,
+//         electric = req.body.electric, fight = req.body.fight, fire = req.body.fire, fly = req.body.fly, water = req.body.water, ice = req.body.ice,
+//         food = req.body.food WHERE name = '${req.params.name}'`);
+//       //res.send(`deleted: ${req.params.name}`)
+//        const results = { 'results': (result) ? result.rows : null};
+//        res.render('pages/updateSuccess', results);
+//       client.release();
+//     } catch (err) {
+//       console.error(err);
+//       res.send("Error " + err);
+//     }
+//   })
 
 app.post('/add', (req,res) => {
   console.log("ok");
@@ -118,31 +152,31 @@ app.post('/add', (req,res) => {
   //++++;
   console.log(total);
   var value = [req.body.tokimonName,req.body.trainer,req.body.height,req.body.weight,req.body.electric,req.body.fight,req.body.fire,req.body.fly,req.body.water,req.body.ice,req.body.food,parseInt(req.body.electric)+parseInt(req.body.fight)+parseInt(req.body.fire)+parseInt(req.body.fly)+parseInt(req.body.water)+parseInt(req.body.ice)];
-  var tokiname = req.body.tokimonName;
-  var trainer = req.body.trainer;
-  var height = req.body.height;
-  var weight = req.body.weight;
-  var electric = req.body.electric;
-  var fight = req.body.fight;
-  var fire = req.body.fire;
-  var fly = req.body.fly;
-  var water = req.body.water;
-  var ice = req.body.ice;
-  var favFood = req.body.food;
-
-  //res.send(`tokimon name: ${tokiname}`);
-
-  console.log(tokiname);
-  console.log(trainer);
-  console.log(height);
-  console.log(weight);
-  console.log(electric);
-  console.log(fight);
-  console.log(fire);
-  console.log(fly);
-  console.log(water);
-  console.log(ice);
-  console.log(favFood);
+  // var tokiname = req.body.tokimonName;
+  // var trainer = req.body.trainer;
+  // var height = req.body.height;
+  // var weight = req.body.weight;
+  // var electric = req.body.electric;
+  // var fight = req.body.fight;
+  // var fire = req.body.fire;
+  // var fly = req.body.fly;
+  // var water = req.body.water;
+  // var ice = req.body.ice;
+  // var favFood = req.body.food;
+  //
+  // //res.send(`tokimon name: ${tokiname}`);
+  //
+  // console.log(tokiname);
+  // console.log(trainer);
+  // console.log(height);
+  // console.log(weight);
+  // console.log(electric);
+  // console.log(fight);
+  // console.log(fire);
+  // console.log(fly);
+  // console.log(water);
+  // console.log(ice);
+  // console.log(favFood);
 
   // const inner_results = await client.query('insert into login (id,username,password) values ($1,$2,$3)',value);
 

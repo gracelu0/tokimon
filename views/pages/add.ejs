@@ -16,11 +16,13 @@
 
               <tr>
                 <td><p id="addP">Name:</p></td>
-                <td><input id="attribute" type="text" name="tokimonName" value="" maxlength="30"></td>
+                <td><input id="attribute" type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
+                  || (event.charCode==32)" name="tokimonName" value="" maxlength="30"></td>
               </tr>
               <tr>
                 <td><p id="addP">Trainer:</p></td>
-                <td><input id="attribute" type="text" name="trainer" value="" maxlength="50"></td>
+                <td><input id="attribute" type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
+                  || (event.charCode==32)" name="trainer" value="" maxlength="50"></td>
               </tr>
               <tr>
                 <td><p id="addP">Height (cm):</p></td>
@@ -80,7 +82,8 @@
               </tr>
               <tr>
                 <td><p id="addP">Favourite food:</p></td>
-                <td><input id="attribute" type="text" name="food" value="" maxlength="20"></td>
+                <td><input id="attribute" type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
+                  || (event.charCode==32)" name="food" value="" maxlength="20"></td>
               </tr>
               <tr>
                 <td id="addTd" align="center" colspan="2"><button type="submit" id="addButton" value="" class="button">Add Tokimon!</button></td>
