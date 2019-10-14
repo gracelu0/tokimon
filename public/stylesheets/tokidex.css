@@ -89,6 +89,7 @@ h1{
 
 #tokimonTable{
   width: 100%;
+  border-radius: 10px;
 }
 
 .noborder{
