@@ -23,11 +23,16 @@ const pool = new Pool({
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
+app.use(errorHandler)
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.get('/', (req, res) => res.render('pages/tokidex'))
 app.get('/add', (req, res) => res.render('pages/add'))
 
+function errorHandler(err,req,res,next){
+  res.status(500)
+  res.render('error', {error:err})
+}
 // app.get('/tokimons', (req,res) => {
 //   var getUsersQuery = `SELECT * FROM tokimondata`;
 //   console.log(getUsersQuery);
@@ -125,67 +130,42 @@ app.post('/update/:name', (req,res)=> {
     food = $10, total = $11 WHERE name = '${req.params.name}'`;
 
   pool.query(sql, value, (err, result)=> {
-    if (err) throw err;
+    //if (err) throw err;
+    if (err) res.render('pages/updateError');
     res.render('pages/updateSuccess');
     console.log("tokimon updated!");
   });
 })
 
-// app.post('/update/:name', async (req, res) => {
-//     try {
-//       const client = await pool.connect()
-//       console.log(req.params.name);
-//       //res.send(`tokimon name: ${req.params.name}`);
-//       const result = await client.query(`UPDATE tokimondata SET trainer = req.body.trainer, height = req.body.height, weight = req.body.weight,
-//         electric = req.body.electric, fight = req.body.fight, fire = req.body.fire, fly = req.body.fly, water = req.body.water, ice = req.body.ice,
-//         food = req.body.food WHERE name = '${req.params.name}'`);
-//       //res.send(`deleted: ${req.params.name}`)
-//        const results = { 'results': (result) ? result.rows : null};
-//        res.render('pages/updateSuccess', results);
-//       client.release();
-//     } catch (err) {
-//       console.error(err);
-//       res.send("Error " + err);
-//     }
-//   })
+app.post('/sort', (req,res)=> {
+  console.log(req.body.sortAttribute);
+  var value = [req.body.sortAttribute];
+  var sql = `SELECT * FROM tokimondata ORDER BY $1 DESC`;
+
+
+  pool.query(sql, value, (err, result)=> {
+    if (err) throw err;
+    const results = { 'results': (result) ? result.rows : null};
+    console.log(results);
+    res.render('pages/db', results );
+  });
+})
+
 
 app.post('/add', (req,res) => {
+  if(req.body.name == ''){
+    res.render('pages/error');
+  }
   console.log("ok");
   const total = parseInt(req.body.electric)+parseInt(req.body.fight)+parseInt(req.body.fire)+parseInt(req.body.fly)+parseInt(req.body.water)+parseInt(req.body.ice);
-  //++++;
+
   console.log(total);
   var value = [req.body.tokimonName,req.body.trainer,req.body.height,req.body.weight,req.body.electric,req.body.fight,req.body.fire,req.body.fly,req.body.water,req.body.ice,req.body.food,parseInt(req.body.electric)+parseInt(req.body.fight)+parseInt(req.body.fire)+parseInt(req.body.fly)+parseInt(req.body.water)+parseInt(req.body.ice)];
-  // var tokiname = req.body.tokimonName;
-  // var trainer = req.body.trainer;
-  // var height = req.body.height;
-  // var weight = req.body.weight;
-  // var electric = req.body.electric;
-  // var fight = req.body.fight;
-  // var fire = req.body.fire;
-  // var fly = req.body.fly;
-  // var water = req.body.water;
-  // var ice = req.body.ice;
-  // var favFood = req.body.food;
-  //
-  // //res.send(`tokimon name: ${tokiname}`);
-  //
-  // console.log(tokiname);
-  // console.log(trainer);
-  // console.log(height);
-  // console.log(weight);
-  // console.log(electric);
-  // console.log(fight);
-  // console.log(fire);
-  // console.log(fly);
-  // console.log(water);
-  // console.log(ice);
-  // console.log(favFood);
-
-  // const inner_results = await client.query('insert into login (id,username,password) values ($1,$2,$3)',value);
 
   var sql = 'INSERT INTO tokimondata (name,trainer,height,weight,electric,fight,fire,fly,water,ice,food,total) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)';
   pool.query(sql, value, (err, result)=> {
-    if (err) throw err;
+    //if (err) throw err;
+    if (err) res.render('pages/addError');
     res.render('pages/addSuccess');
     console.log("tokimon added!");
   });

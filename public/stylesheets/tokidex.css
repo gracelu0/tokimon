@@ -68,6 +68,11 @@
     margin: 20px auto;
 }
 
+#titleCircle{
+  height:50px;
+  width: 250px;
+}
+
 #addCircle{
   padding: 10px;
   width: 600px;
@@ -89,7 +94,7 @@ h1{
 
 #tokimonTable{
   width: 100%;
-  border-radius: 10px;
+  border-radius: 40px;
 }
 
 .noborder{
@@ -97,6 +102,13 @@ h1{
   border-left: hidden;
   border-top: hidden;
 }
+
+.hideBorder{
+  border-bottom: hidden;
+  border-left: hidden;
+  border-right: hidden;
+}
+
 #tokimonCells{
   padding: 10px;
   text-align: center;
@@ -109,7 +121,9 @@ h1{
 
 #indivTable{
   width: 50%;
+  border: 1px white solid;
   border-radius: 20px;
+  border-color: white;
 }
 
 #indivCircle{
@@ -126,6 +140,7 @@ th{
 
 td{
   font-size: 14pt;
+  border-radius: 10px;
 }
 
 
@@ -137,7 +152,7 @@ td{
   vertical-align: top;
 }
 
-#attribute{
+.attribute{
   font-size: 15pt;
   font-family: 'Dosis', sans-serif;
   border-radius: 10px;
@@ -174,7 +189,7 @@ td{
 }
 
 #edit{
-  background: turquoise;
+  background: skyblue;
   opacity: 0.8;
   font-family: 'Dosis', sans-serif;
   color: white;
@@ -232,10 +247,36 @@ td{
   font-family: 'Dosis', sans-serif;
 }
 
+.indivButton{
+  background-color: #c4abed;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  opacity: 0.7;
+  border-radius: 50%;
+  font-family: 'Dosis', sans-serif;
+}
+
+#indivEdit{
+  background: skyblue;
+  width: 90px;
+
+}
+
+#indivDelete{
+  background: red;
+
+}
+
 #backButton{
   font-size: 20px;
 }
 
-#indivButton:hover, #homeButton:hover,#addButton:hover, #updateButton:hover, #view:hover, #viewAdd:hover,#edit:hover, #delete:hover, #backButton:hover{
+.indivButton:hover, #homeButton:hover,#addButton:hover, #updateButton:hover, #view:hover, #viewAdd:hover,#edit:hover, #delete:hover, #backButton:hover{
   opacity: 1;
 }

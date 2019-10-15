@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-
+    <script src="/js/tokimon.js" defer></script>
     <meta charset="utf-8">
     <title>Add Tokimon</title>
     <link rel="stylesheet" href="/stylesheets/tokidex.css">
@@ -16,26 +16,26 @@
 
         <div id="addCircle" class="circle">
           <h1 align="center">Add a Tokimon</h1><br>
-          <form class="" action="/add" method="post">
+          <form id="addForm" class="" action="/add" method="post">
           <table align="center" border="0">
 
               <tr>
                 <td><p id="addP">Name:</p></td>
-                <td><input id="attribute" type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
+                <td><input class="attribute" type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
                   || (event.charCode==32)" name="tokimonName" value="" maxlength="30"></td>
               </tr>
               <tr>
                 <td><p id="addP">Trainer:</p></td>
-                <td><input id="attribute" type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
+                <td><input class="attribute" type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
                   || (event.charCode==32)" name="trainer" value="" maxlength="50"></td>
               </tr>
               <tr>
                 <td><p id="addP">Height (cm):</p></td>
-                <td><input id="attribute" type="number" name="height" value="" min="0" oninput="validity.valid||(value='');"></td>
+                <td><input class="attribute" type="number" name="height" value="" min="0" oninput="validity.valid||(value='');"></td>
               </tr>
               <tr>
                 <td><p id="addP">Weight (lbs):</p></td>
-                <td><input id="attribute" type="number" name="weight" value="" min="0" oninput="validity.valid||(value='');"></td>
+                <td><input class="attribute" type="number" name="weight" value="" min="0" oninput="validity.valid||(value='');"></td>
               </tr>
               <tr>
                 <td><p id="addP">Electric:</p></td>
@@ -87,32 +87,13 @@
               </tr>
               <tr>
                 <td><p id="addP">Favourite food:</p></td>
-                <td><input id="attribute" type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
+                <td><input class="attribute" type="text" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
                   || (event.charCode==32)" name="food" value="" maxlength="20"></td>
               </tr>
               <tr>
                 <td id="addTd" align="center" colspan="2"><button type="submit" id="addButton" value="" class="button">Add Tokimon!</button></td>
 
               </tr>
-              <!--Name: <input id="attribute" type="text" name="tokimonName" value="" maxlength="30"><br>
-              Trainer: <input id="attribute" type="text" name="trainer" value="" maxlength="50"><br>
-              Height (cm): <input id="attribute" type="number" name="height" value="" min="0" oninput="validity.valid||(value='');"><br>
-              Weight (lbs): <input id="attribute" type="number" name="weight" value="" min="0" oninput="validity.valid||(value='');"><br>
-              <div class="slidecontainer">
-                Electric: <input id="electric" type="range" min="0" max="100" name="electric" value="50" class="slider" oninput="electricVal.value=electric.value">
-                <output class="slides" name="ele" id="electricVal">50</output><br>
-                Fight: <input id="fight" type="range" name="fight" value="50" class="slider" oninput="fightVal.value=fight.value">
-                <output class="slides" name="fig" id="fightVal">50</output><br>
-                Fire: <input id="fire" type="range" name="fire" value="50" class="slider" oninput="fireVal.value=fire.value">
-                <output class="slides" name="fir" id="fireVal">50</output><br>
-                Fly: <input id="fly" type="range" min="0" max="100" name="fly" value="50" class="slider" oninput="flyVal.value=fly.value">
-                <output class="slides" name="" id="flyVal">50</output><br>
-                Water: <input id="water" type="range" name="water" value="50" class="slider" oninput="waterVal.value=water.value">
-                <output class="slides" name="wat" id="waterVal">50</output><br>
-                Ice: <input id="ice" type="range" name="ice" value="50" class="slider" oninput="iceVal.value=ice.value">
-                <output class="slides" name="" id="iceVal">50</output><br>
-              <!--</div>
-              Favourite food: <input id="attribute" type="text" name="food" value="" maxlength="20"><br>-->
 
           </table>
 

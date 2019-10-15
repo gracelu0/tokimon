@@ -23,16 +23,16 @@
           <table align="center" border="0">
               <tr>
                 <td><p id="addP">Trainer:</p></td>
-                <td><input id="attribute" type="text" onkeypress="return (event.charCode > 64 &&
+                <td><input class="attribute" type="text" onkeypress="return (event.charCode > 64 &&
 	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" name="trainer" value="<%=r.trainer%>" maxlength="50"></td>
               </tr>
               <tr>
                 <td><p id="addP">Height (cm):</p></td>
-                <td><input id="attribute" type="number" name="height" value="<%=r.height%>" min="0" oninput="validity.valid||(value='');"></td>
+                <td><input class="attribute" type="number" name="height" value="<%=r.height%>" min="0" oninput="validity.valid||(value='');"></td>
               </tr>
               <tr>
                 <td><p id="addP">Weight (lbs):</p></td>
-                <td><input id="attribute" type="number" name="weight" value="<%=r.weight%>" min="0" oninput="validity.valid||(value='');"></td>
+                <td><input class="attribute" type="number" name="weight" value="<%=r.weight%>" min="0" oninput="validity.valid||(value='');"></td>
               </tr>
               <tr>
                 <td><p id="addP">Electric:</p></td>
@@ -84,7 +84,7 @@
               </tr>
               <tr>
                 <td><p id="addP">Favourite food:</p></td>
-                <td><input id="attribute" type="text" onkeypress="return (event.charCode > 64 &&
+                <td><input class="attribute" type="text" onkeypress="return (event.charCode > 64 &&
 	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" name="food" value="<%=r.food%>" maxlength="20"></td>
               </tr>
               <tr>

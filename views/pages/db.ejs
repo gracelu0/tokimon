@@ -16,15 +16,18 @@
     <button id="backButton" onclick="" type="submit" class="button">Back</button>
   </form>
   <div class="row" align="right">
-    <h1 align="center">Your Tokidex</h1>
+    <div id="titleCircle" class="circle">
+      <h1 align="center">Your Tokidex</h1>
+    </div>
     <form class="" action="/sort" method="post">
-      <select class="" name="">
-        <option value="Name">Name</option>
-        <option value="Height">Height</option>
-        <option value="Weight">Weight</option>
-        <option value="Total Ability">Total Ability</option>
-
+      Sort by:
+      <select class="" name="sortAttribute">
+        <option value="8">Name</option>
+        <option value="6">Height</option>
+        <option value="11">Weight</option>
+        <option value="9">Total Ability</option>
       </select>
+      <input type="submit" name="sort" value="Sort!">
     </form>
   </div>
 

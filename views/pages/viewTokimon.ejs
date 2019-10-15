@@ -65,14 +65,18 @@
     </tr>
 
     <tr>
-      <td colspan="2">
+      <td align="center" class="hideBorder">
         <form class="form-inline" action="/edit/<%=r.name%>" method="get">
-          <button id="indivButton" onclick="" type="submit" class="button">Edit</button>
+          <button id="indivEdit" onclick="" type="submit" class="indivButton">Edit</button>
         </form>
-        <form class="form-inline" action="/deleteTokimon/<%=r.name%>" method="get">
-          <button id="indivButton" onclick="" type="submit" class="button">Delete</button>
-        </form>
-      </td>
+        </td>
+        <td class="hideBorder">
+          <form class="form-inline" action="/deleteTokimon/<%=r.name%>" method="get">
+            <button id="indivDelete" onclick="" type="submit" class="indivButton">Delete</button>
+          </form>
+        </td>
+
+
 
 
     </tr>
