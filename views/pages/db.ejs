@@ -15,7 +15,19 @@
   <form class="" action="/individuals" method="get">
     <button id="backButton" onclick="" type="submit" class="button">Back</button>
   </form>
-  <h1 align="center">Your Tokidex</h1>
+  <div class="row" align="right">
+    <h1 align="center">Your Tokidex</h1>
+    <form class="" action="/sort" method="post">
+      <select class="" name="">
+        <option value="Name">Name</option>
+        <option value="Height">Height</option>
+        <option value="Weight">Weight</option>
+        <option value="Total Ability">Total Ability</option>
+
+      </select>
+    </form>
+  </div>
+
   <table id="tokimonTable" border="1">
     <tr>
       <th class="noborder"></th>
@@ -28,6 +40,8 @@
       <th id="tokimonCells">Fight</th>
       <th id="tokimonCells">Fire</th>
       <th id="tokimonCells">Fly</th>
+      <th id="tokimonCells">Ice</th>
+      <th id="tokimonCells">Water</th>
       <th id="tokimonCells">Total Ability</th>
     </tr>
     <% if(results.length){
@@ -50,6 +64,8 @@
       <td id="tokimonCells"><%=r.fight%></td>
       <td id="tokimonCells"><%=r.fire%></td>
       <td id="tokimonCells"><%=r.fly%></td>
+      <td id="tokimonCells"><%=r.ice%></td>
+      <td id="tokimonCells"><%=r.water%></td>
       <td id="tokimonCells"><%=r.total%></td>
     </tr>
   <%})};%>

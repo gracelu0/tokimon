@@ -108,7 +108,16 @@ h1{
 }
 
 #indivTable{
-  width: 80%;
+  width: 50%;
+  border-radius: 20px;
+}
+
+#indivCircle{
+  width: 900px;
+}
+
+#indivButton{
+  display: inline-block;
 }
 
 th{
@@ -227,6 +236,6 @@ td{
   font-size: 20px;
 }
 
-#homeButton:hover,#addButton:hover, #updateButton:hover, #view:hover, #viewAdd:hover,#edit:hover, #delete:hover, #backButton:hover{
+#indivButton:hover, #homeButton:hover,#addButton:hover, #updateButton:hover, #view:hover, #viewAdd:hover,#edit:hover, #delete:hover, #backButton:hover{
   opacity: 1;
 }

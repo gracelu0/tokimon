@@ -16,7 +16,7 @@
   </form>
   <% if(results.length){
     results.forEach(function(r){ %>
-  <div class="circle">
+  <div id="indivCircle" class="circle">
   <h1 align="center"><%=r.name%></h1><br>
   <table align="center" id="indivTable" border="1">
     <tr>
@@ -65,7 +65,14 @@
     </tr>
 
     <tr>
-
+      <td colspan="2">
+        <form class="form-inline" action="/edit/<%=r.name%>" method="get">
+          <button id="indivButton" onclick="" type="submit" class="button">Edit</button>
+        </form>
+        <form class="form-inline" action="/deleteTokimon/<%=r.name%>" method="get">
+          <button id="indivButton" onclick="" type="submit" class="button">Delete</button>
+        </form>
+      </td>
 
 
     </tr>
@@ -73,12 +80,7 @@
 
   </table>
 
-  <form class="" action="/edit/<%=r.name%>" method="get">
-    <button id="homeButton" onclick="" type="submit" class="button">Edit</button>
-  </form>
-  <form class="" action="/deleteTokimon/<%=r.name%>" method="get">
-    <button id="homeButton" onclick="" type="submit" class="button">Delete</button>
-  </form>
+
   <%})};%>
 </div>
 </div>
