@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% include ../partials/header.ejs %>
+  <!--% include ../partials/header.ejs %>-->
   <link rel="stylesheet" href="/stylesheets/tokidex.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis|Quicksand&display=swap">
 </head>
 
 <body>
 
-<% include ../partials/nav.ejs %>
+<!--<% include ../partials/nav.ejs %>-->
 
 <div class="container">
   <form class="" action="/individuals" method="get">
@@ -18,7 +18,7 @@
     results.forEach(function(r){ %>
   <div id="indivCircle" class="circle">
   <h1 align="center"><%=r.name%></h1><br>
-  <table align="center" id="indivTable" border="1">
+  <table align="center" id="indivTable" border="0">
     <tr>
       <th id="tokimonCells">Trainer</th>
       <td id="tokimonCells"><%=r.trainer%></td>
@@ -65,12 +65,12 @@
     </tr>
 
     <tr>
-      <td align="center" class="hideBorder">
+      <td style="border: hidden;" align="center" >
         <form class="form-inline" action="/edit/<%=r.name%>" method="get">
           <button id="indivEdit" onclick="" type="submit" class="indivButton">Edit</button>
         </form>
         </td>
-        <td class="hideBorder">
+        <td style="border: hidden;">
           <form class="form-inline" action="/deleteTokimon/<%=r.name%>" method="get">
             <button id="indivDelete" onclick="" type="submit" class="indivButton">Delete</button>
           </form>

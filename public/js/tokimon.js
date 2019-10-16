@@ -11,7 +11,7 @@ function checkFields(){
       error = 1;
     }
     if (allFields[k].value != ''){
-      allWeights[k].style.border = "1px solid red";
+      allFields[k].style.border = "1px solid red";
       error = 1;
     }
     else{

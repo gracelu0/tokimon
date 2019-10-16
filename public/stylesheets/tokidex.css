@@ -92,10 +92,31 @@ h1{
   font-family: 'Dosis', sans-serif;
 }
 
-#tokimonTable{
+#dbTable{
   width: 100%;
   border-radius: 40px;
+  border-collapse: separate;
+  border: 0.5px solid black;
 }
+
+#dbTable th, td{
+  border-top: 0.7px solid grey;
+  border-left: 0.7px solid grey;
+}
+
+#dbTable th{
+  border-top: none;
+}
+
+#dbTable td:first-child, th:first-child{
+  border-left: none;
+}
+
+#sortList{
+  font-size: 12pt;
+  font-family: 'Dosis', sans-serif;
+}
+
 
 .noborder{
   border-bottom: hidden;
@@ -104,14 +125,19 @@ h1{
 }
 
 .hideBorder{
-  border-bottom: hidden;
-  border-left: hidden;
-  border-right: hidden;
+  border: hidden;
+}
+
+#dbCells{
+  padding: 10px;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
 }
 
 #tokimonCells{
-  padding: 10px;
   text-align: center;
+  border-radius: 20px;
+  padding: 10px;
   font-family: 'Dosis', sans-serif;
 }
 
@@ -121,9 +147,8 @@ h1{
 
 #indivTable{
   width: 50%;
-  border: 1px white solid;
-  border-radius: 20px;
   border-color: white;
+  border-radius: 20px;
 }
 
 #indivCircle{
@@ -134,15 +159,19 @@ h1{
   display: inline-block;
 }
 
-th{
+#indivTable th{
   font-size: 17pt;
+  border: 1px solid white;
 }
 
-td{
+#indivTable td{
   font-size: 14pt;
-  border-radius: 10px;
+  border: 1px solid white;
 }
 
+#addTable th,td{
+  border: none;
+}
 
 #addP{
   font-size: 15pt;
@@ -191,18 +220,22 @@ td{
 #edit{
   background: skyblue;
   opacity: 0.8;
+  font-size: 15px;
   font-family: 'Dosis', sans-serif;
   color: white;
   border-radius: 10px;
-  width: 60px;
+  width: 55px;
+  cursor: pointer;
 }
 
 #delete{
   background: crimson;
   opacity: 0.8;
+  font-size: 15px;
   font-family: 'Dosis', sans-serif;
   color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .row{

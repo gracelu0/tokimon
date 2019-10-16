@@ -138,16 +138,26 @@ app.post('/update/:name', (req,res)=> {
 })
 
 app.post('/sort', (req,res)=> {
-  console.log(req.body.sortAttribute);
-  var value = [req.body.sortAttribute];
-  var sql = `SELECT * FROM tokimondata ORDER BY $1 DESC`;
+  console.log("attribute",req.body.attributes);
+  var attribute = req.body.attributes;
+  var sql = `SELECT * FROM tokimondata ORDER BY ${req.body.attributes} DESC`;
 
 
-  pool.query(sql, value, (err, result)=> {
+  pool.query(sql, (err, result)=> {
     if (err) throw err;
     const results = { 'results': (result) ? result.rows : null};
     console.log(results);
-    res.render('pages/db', results );
+    console.log("att:",attribute);
+    if (attribute=="Weight"){
+      res.render('pages/dbSortWeight', results );
+    }
+    else if (attribute=="Total"){
+      res.render('pages/dbSortTotal', results );
+    }
+    else if (attribute=="Height"){
+      res.render('pages/dbSortHeight', results );
+    }
+
   });
 })
 
